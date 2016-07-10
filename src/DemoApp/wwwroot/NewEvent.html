@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="eventsApp">
+
 <head>
     <meta charset="utf-8" />
     <title>Event Registration</title>
@@ -7,6 +8,7 @@
     <link href="/lib/bootswatch/darkly/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/app.css" rel="stylesheet" />
 </head>
+
 <body ng-cloak>
     <div class="container">
         <nav class="navbar navbar-default">
@@ -45,27 +47,34 @@
                     <fieldset>
                         <div class="row form-group">
                             <div class="col-xs-3"><label for="eventName">Event Name:</label></div>
-                            <div class="col-xs-9"><input type="text" required id="eventName" ng-model="event.name" placeholder="Name of your event..." class="form-control" /></div>
+                            <div class="col-xs-9"><input type="text" required id="eventName" ng-model="event.name" placeholder="Name of your event..."
+                                    class="form-control" /></div>
                         </div>
                         <div class="row form-group">
                             <div class="col-xs-3"><label for="eventDate">Event Date:</label></div>
-                            <div class="col-xs-9"><input type="text" required ng-pattern="/\d\d/\d\d/\d\d\d\d/" id="eventDate" ng-model="event.date" placeholder="format (mm/dd/yyyy)..." class="form-control" /></div>
+                            <div class="col-xs-9"><input type="text" required ng-pattern="/\d\d/\d\d/\d\d\d\d/" id="eventDate" ng-model="event.date"
+                                    placeholder="format (mm/dd/yyyy)..." class="form-control" /></div>
                         </div>
                         <div class="row form-group">
                             <div class="col-xs-3"><label for="eventTime">Event Time:</label></div>
-                            <div class="col-xs-9"><input type="text" id="eventTime" ng-model="event.time" placeholder="start and end time..." class="form-control" /></div>
+                            <div class="col-xs-9"><input type="text" id="eventTime" ng-model="event.time" placeholder="start and end time..." class="form-control"
+                                /></div>
                         </div>
                         <div class="row form-group">
                             <div class="col-xs-3"><label for="eventLocation">Event Location:</label></div>
-                            <div class="col-xs-9"><input type="text" id="eventLocation" ng-model="event.location.address" placeholder="Address of event..." class="form-control" /></div>
+                            <div class="col-xs-9"><input type="text" id="eventLocation" ng-model="event.location.address" placeholder="Address of event..."
+                                    class="form-control" /></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col-xs-offset-3 col-xs-5"><input type="text" id="eventCity" ng-model="event.location.city" placeholder="City..." class="form-control" /></div>
-                            <div class="col-xs-4"><input type="text" id="eventProvince" ng-model="event.location.province" placeholder="Province..." class="form-control" /></div>
+                            <div class="col-xs-offset-3 col-xs-5"><input type="text" id="eventCity" ng-model="event.location.city" placeholder="City..." class="form-control"
+                                /></div>
+                            <div class="col-xs-4"><input type="text" id="eventProvince" ng-model="event.location.province" placeholder="Province..."
+                                    class="form-control" /></div>
                         </div>
                         <div class="row form-group">
                             <div class="col-xs-3"><label for="eventImageUrl">Image:</label></div>
-                            <div class="col-xs-9"><input type="url" class="input-lg form-control" id="eventImageUrl" ng-model="event.imageUrl" placeholder="Url of image..." /></div>
+                            <div class="col-xs-9"><input type="url" class="input-lg form-control" id="eventImageUrl" ng-model="event.imageUrl"
+                                    placeholder="Url of image..." /></div>
                         </div>
                     </fieldset>
                     <div class="row">
@@ -88,9 +97,9 @@
     </div>
 
     <style type="text/css">
-    [ng-controller="EditEventController"] {
-        padding: 0 20px; 
-    }
+        [ng-controller="EditEventController"] {
+            padding: 0 20px;
+        }
     </style>
 
     <script src="/lib/jquery/dist/jquery.min.js"></script>
@@ -105,4 +114,5 @@
     <script src="/js/services/EventData.js"></script>
     <script src="/js/filters.js"></script>
 </body>
+
 </html>
