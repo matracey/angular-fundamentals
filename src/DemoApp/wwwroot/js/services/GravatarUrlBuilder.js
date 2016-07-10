@@ -1,10 +1,8 @@
 'use strict';
 
-eventsApp.controller('EditProfileController',
-    function EditProfileController($scope) {
-        $scope.user = {};
-
-        $scope.getGravatarUrl = function(email) {
+eventsApp.factory('gravatarUrlBuilder', function () {
+    return {
+        buildGravatarUrl: function (email) {
             var defaultGravatarUrl = "http://www.gravatar.com/avatar/000?s=200";
 
             var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -15,6 +13,5 @@ eventsApp.controller('EditProfileController',
 
             return 'http://www.gravatar.com/avatar/' + MD5(email) + ".jpg?s=200&r=g";
         }
-
-    }
-);
+    };
+});
