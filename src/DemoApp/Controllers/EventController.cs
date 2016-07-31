@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,9 +17,33 @@ namespace DemoApp.Controllers
             _env = env;
         }
 
+        
         public JToken Get()
         {
-            return Get(1);
+            return GetAllArray();
+        }
+
+        private JToken GetAllArray()
+        {
+            string content = "";
+            
+            foreach (var file in System.IO.Directory.GetFiles(_env.WebRootPath + "/data/event/")) 
+                content += System.IO.File.ReadAllText(file) + ",";
+
+            return JArray.Parse("[" + content.Substring(0, content.Length - 1) + "]");
+        }
+
+        private JToken GetAllObject()
+        {
+            JObject val = new JObject();
+
+            foreach (string file in System.IO.Directory.GetFiles(_env.WebRootPath + "/data/event/"))
+            {
+                var data = JObject.Parse(System.IO.File.ReadAllText(file));
+                val.Add(data["id"].ToString(), data);
+            }
+
+            return new JObject(val);
         }
 
         [HttpGet("{id}")]

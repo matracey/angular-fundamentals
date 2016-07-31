@@ -1,0 +1,82 @@
+﻿<div ng-controller="EventController" class="event-body">
+    <img ng-src="{{event.imageUrl}}" alt="{{event.name}}" class="img-responsive" />
+    <div class="row">
+        <div class="col-sm-11">
+            <h2>{{event.name | uppercase}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p><strong>Date:</strong> {{event.date}}</p>
+            <p><strong>Time:</strong> {{event.time}}</p>
+        </div>
+        <div class="col-sm-4">
+            <address>
+                <p><strong>Address:</strong></p>
+                <p>{{event.location.address}}</p>
+                <p>{{event.location.city}}, {{event.location.province}}</p>
+            </address>
+        </div>
+    </div>
+
+    <hr />
+
+    <h3>Sessions</h3>
+    <ul class="thumbnails" style="list-style-type: none;">
+
+        <li ng-repeat="session in event.sessions">
+
+            <div class="row session">
+                <!-- VOTE -->
+                <div class="col-sm-1">
+                    <div class="well votingWidget">
+                        <div class="votingButton" ng-click="upVoteSession(session)">
+                            <span class="glyphicon glyphicon-chevron-up"></span>
+                        </div>
+                        <div style="padding-bottom: 3px;">
+                            <span class="badge">{{session.upVoteCount}}</span>
+                        </div>
+                        <div class="votingButton" ng-click="downVoteSession(session)">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SESSION -->
+                <div class="col-sm-9">
+                    <div class="well">
+                        <h4 class="well-title">{{session.name}}</h4>
+                        <h6 class="creator-name">{{session.creatorName}}</h6>
+                        <p class="no-padding">Duration: {{session.duration | durations }}</p>
+                        <p class="no-padding">Level: {{session.level}}</p>
+                        <p>{{session.abstract}}</p>
+                    </div>
+                    <!-- .well -->
+                </div>
+                <!-- .col-sm-9 -->
+
+            </div>
+            <!-- .row.session -->
+        </li>
+    </ul>
+
+</div>
+
+<style type="text/css">
+    .event-body {
+        padding: 0 20px;
+    }
+    
+    .creator-name {
+        margin-top: -10px;
+    }
+    
+    .no-padding {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .votingWidget {
+        text-align: center;
+    }
+</style>
