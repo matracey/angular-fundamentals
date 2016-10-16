@@ -2,6 +2,7 @@
 
 var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute'])
     .config(function ($routeProvider, $locationProvider) {
+        
         $routeProvider.when('/newEvent',
         {
             templateUrl: 'templates/NewEvent.html',
@@ -20,6 +21,19 @@ var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute'])
             controller: 'EventController'
         });
 
-        $routeProvider.otherwise({ redirectTo: '/events' });
+        $routeProvider.when('/editProfile',
+        {
+            templateUrl: 'templates/EditProfile.html',
+            controller: 'EditProfileController'
+        });
+
+        $routeProvider.when('/sampleDirective',{
+            templateUrl: 'templates/SampleDirective.html',
+            controller: 'SampleDirectiveController'
+        });
+
+        $routeProvider.otherwise({ 
+            redirectTo: '/events' 
+        });
     }
 );

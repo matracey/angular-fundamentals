@@ -28,19 +28,7 @@
 
             <div class="row session">
                 <!-- VOTE -->
-                <div class="col-sm-1">
-                    <div class="well votingWidget">
-                        <div class="votingButton" ng-click="upVoteSession(session)">
-                            <span class="glyphicon glyphicon-chevron-up"></span>
-                        </div>
-                        <div style="padding-bottom: 3px;">
-                            <span class="badge">{{session.upVoteCount}}</span>
-                        </div>
-                        <div class="votingButton" ng-click="downVoteSession(session)">
-                            <span class="glyphicon glyphicon-chevron-down"></span>
-                        </div>
-                    </div>
-                </div>
+                <upvote upvote="upVoteSession(session)" downvote="downVoteSession(session)" count="session.upVoteCount" />
 
                 <!-- SESSION -->
                 <div class="col-sm-9">
